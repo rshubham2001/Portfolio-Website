@@ -6,6 +6,22 @@ var typed = new Typed(".typing",{
     loop:true
 })
 
+
+    // Calculate age based on birthdate
+function calculateAge(birthdate) {
+        var today = new Date();
+        var birthDate = new Date(birthdate);
+        var age = today.getFullYear() - birthDate.getFullYear();
+        var m = today.getMonth() - birthDate.getMonth();
+        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+            age--;
+        }
+        return age;
+    }
+
+    // Update age in the HTML
+    document.getElementById("age").innerText = calculateAge("2001-06-06");
+
 // Aside
 
 const nav = document.querySelector(".nav"),
@@ -80,19 +96,3 @@ const nav = document.querySelector(".nav"),
                 allSection[i].classList.toggle("open")
             }
         }
-
-
-    // Calculate age based on birthdate
-    function calculateAge(birthdate) {
-        var today = new Date();
-        var birthDate = new Date(birthdate);
-        var age = today.getFullYear() - birthDate.getFullYear();
-        var m = today.getMonth() - birthDate.getMonth();
-        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-            age--;
-        }
-        return age;
-    }
-
-    // Update age in the HTML
-    document.getElementById("age").innerText = calculateAge("2001-06-06");
